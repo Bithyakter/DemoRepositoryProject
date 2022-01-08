@@ -1,5 +1,7 @@
+using Demo.Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,8 +26,8 @@ namespace DemoRepositoryProject
         {
             services.AddControllersWithViews();
 
-            //services.AddDbContext<ApplicationDBContext>(x => x.UseSqlServer
-            //(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationDBContext>(x => x.UseSqlServer
+            (Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
