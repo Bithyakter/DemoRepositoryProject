@@ -10,6 +10,7 @@ namespace Demo.BLR.Mapper
 {
     public class StudentMapper
     {
+        #region DtoToModel
         public Student DtoToModel(StudentDTO dto)
         {
             Student std = new Student();
@@ -24,7 +25,9 @@ namespace Demo.BLR.Mapper
 
             return std;
         }
+        #endregion
 
+        #region ModelToDto
         public StudentDTO ModelToDto(Student model)
         {
             StudentDTO dto = new StudentDTO();
@@ -40,5 +43,6 @@ namespace Demo.BLR.Mapper
 
             return dto; 
         }
+        #endregion
     }
 }

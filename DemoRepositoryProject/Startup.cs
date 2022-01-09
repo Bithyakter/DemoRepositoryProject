@@ -1,6 +1,6 @@
-using Demo.BLR.Implementation;
+using Demo.BLR.Repositories;
 using Demo.BLR.Interface;
-using Demo.DAL.Implementation;
+using Demo.DAL.Repositories;
 using Demo.DAL.Interface;
 using Demo.Data.Context;
 using Microsoft.AspNetCore.Builder;
@@ -34,7 +34,7 @@ namespace DemoRepositoryProject
             (Configuration.GetConnectionString("DefaultConnection")));
 
             //Dependency-Injection
-            services.AddScoped<IStudent, StudentRpository>();
+            services.AddScoped<IStudent, StudentRepository>();
             services.AddScoped<IStudentBLR, StudentBLR>();
         }
 
