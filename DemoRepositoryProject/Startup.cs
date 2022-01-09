@@ -1,3 +1,7 @@
+using Demo.BLR.Implementation;
+using Demo.BLR.Interface;
+using Demo.DAL.Implementation;
+using Demo.DAL.Interface;
 using Demo.Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,6 +32,10 @@ namespace DemoRepositoryProject
 
             services.AddDbContext<ApplicationDBContext>(x => x.UseSqlServer
             (Configuration.GetConnectionString("DefaultConnection")));
+
+            //Dependency-Injection
+            services.AddScoped<IStudent, StudentRpository>();
+            services.AddScoped<IStudentBLR, StudentBLR>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -22,6 +22,7 @@ namespace Demo.BLR.Implementation
 
         }
 
+        #region SaveStudent
         public void SaveStudent(StudentDTO stdVM)
         {
             Student std = _stdMapper.DtoToModel(stdVM);
@@ -36,13 +37,17 @@ namespace Demo.BLR.Implementation
             }
             _StdRepo.UpdateContext();
         }
+        #endregion
 
+        #region DeleteStudent
         public void DeleteStudent(int id)
         {
             _StdRepo.DeleteStudent(id);
             _StdRepo.UpdateContext();
         }
+        #endregion
 
+        #region GetAllStudents
         public IEnumerable<StudentDTO> GetAllStudents()
         {
             var studentList = _StdRepo.GetAllStudents();
@@ -53,12 +58,15 @@ namespace Demo.BLR.Implementation
 
             return StudentListOutput;
         }
+        #endregion
 
+        #region GetStudent
         public StudentDTO GetStudent(int id)
         {
             Student student = _StdRepo.GetStudent(id);
             StudentDTO studentOutput = _stdMapper.ModelToDto(student);
             return studentOutput;
         }
+        #endregion
     }
 }
